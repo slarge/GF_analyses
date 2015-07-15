@@ -309,8 +309,8 @@ spCumPlot <- function (obj, imp.vars = NULL, imp.vars.names = imp.vars, leg.posn
   if (show.species) {
     for (varX in imp.vars) {
       CU <- cumimp(obj, varX, "Species")
-      xlim <- range(sapply(CU, "[[", "x"))
-      ylim <- range(sapply(CU, "[[", "y"))
+      xlim <- range(sapply(CU, "[[", "x"), na.rm = T)
+      ylim <- range(sapply(CU, "[[", "y"), na.rm = T)
       plot(xlim, ylim, type = "n", xlab = if (show.overall) 
         ""
         else imp.vars.names[imp.vars == varX], ylab = "", 
